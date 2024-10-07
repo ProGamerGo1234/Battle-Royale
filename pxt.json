@@ -1,5 +1,5 @@
 {
-    "name": "Battle Royale",
+    "name": "Platformer-Game",
     "description": "",
     "dependencies": {
         "device": "*"
