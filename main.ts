@@ -1,4 +1,15 @@
-let Hero = sprites.create(img`
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (Hero.vy == 0) {
+        Hero.vy = -100
+    }
+})
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (Hero.vy == 0) {
+        Hero.vy = -100
+    }
+})
+let Hero: Sprite = null
+Hero = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . f f f f f f f f f f . . . 
@@ -142,3 +153,4 @@ scene.setBackgroundImage(img`
     7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
     `)
 scene.cameraFollowSprite(Hero)
+tiles.placeOnRandomTile(Hero, sprites.dungeon.collectibleBlueCrystal)
