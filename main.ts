@@ -1,15 +1,22 @@
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (Hero.vy == 0) {
-        Hero.vy = -100
+    if (mySprite.vy == 0) {
+        mySprite.vy = -100
     }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (Hero.vy == 0) {
-        Hero.vy = -100
+    if (mySprite.vy == 0) {
+        mySprite.vy = -100
     }
 })
-let Hero: Sprite = null
-Hero = sprites.create(img`
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava1, function (sprite, location) {
+    game.gameOver(false)
+})
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleRedCrystal, function (sprite, location) {
+    tiles.setCurrentTilemap(tilemap`level4`)
+    tiles.placeOnRandomTile(mySprite, sprites.dungeon.collectibleBlueCrystal)
+})
+let mySprite: Sprite = null
+mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . f f f f f f f f f f . . . 
@@ -27,8 +34,8 @@ Hero = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
-Hero.ay = 100
-controller.moveSprite(Hero, 100, 0)
+mySprite.ay = 100
+controller.moveSprite(mySprite, 100, 0)
 tiles.setCurrentTilemap(tilemap`level2`)
 scene.setBackgroundImage(img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
@@ -152,5 +159,5 @@ scene.setBackgroundImage(img`
     7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
     7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
     `)
-scene.cameraFollowSprite(Hero)
-tiles.placeOnRandomTile(Hero, sprites.dungeon.collectibleBlueCrystal)
+scene.cameraFollowSprite(mySprite)
+tiles.placeOnRandomTile(mySprite, sprites.dungeon.collectibleBlueCrystal)
