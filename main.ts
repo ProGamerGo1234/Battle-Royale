@@ -293,6 +293,9 @@ scene.onOverlapTile(SpriteKind.Player, sprites.swamp.swampTile3, function (sprit
     tiles.placeOnRandomTile(mySprite, sprites.dungeon.collectibleBlueCrystal)
     game.showLongText("You Landed!", DialogLayout.Bottom)
 })
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestClosed, function (sprite, location) {
+    game.gameOver(false)
+})
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.hazardLava1, function (sprite, location) {
     game.gameOver(false)
 })
