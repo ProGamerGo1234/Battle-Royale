@@ -156,6 +156,7 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairLadder, function (sp
         ........................
         ........................
         `, SpriteKind.Enemy)
+    Jump_Block += 1
     tiles.placeOnRandomTile(mySprite2, assets.tile`myTile2`)
     tiles.placeOnRandomTile(mySprite, sprites.dungeon.collectibleBlueCrystal)
     game.showLongText("Enemy Incoming!", DialogLayout.Bottom)
@@ -760,5 +761,13 @@ forever(function () {
             . . . . . f f f f f f . . . . . 
             . . . . . f f . . f f . . . . . 
             `)
+    }
+})
+forever(function () {
+    if (Jump_Block == 1) {
+        pause(5000)
+        pause(5000)
+        pause(5000)
+        tiles.placeOnRandomTile(mySprite2, assets.tile`myTile2`)
     }
 })
