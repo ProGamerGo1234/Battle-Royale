@@ -435,6 +435,12 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairLarge, function (spr
     tiles.placeOnRandomTile(mySprite, sprites.dungeon.collectibleBlueCrystal)
     game.showLongText("The rocket is there. Pay attention to the blocks.", DialogLayout.Bottom)
 })
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.chestOpen, function (sprite, location) {
+    game.showLongText("You did it, for now.", DialogLayout.Bottom)
+    game.showLongText("Please complete the form on the next link.", DialogLayout.Bottom)
+    game.showLongText("https://qrco.de/LevelAdd", DialogLayout.Bottom)
+    game.showLongText("Thank You.", DialogLayout.Bottom)
+})
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.collectibleInsignia, function (sprite, location) {
     tiles.setCurrentTilemap(tilemap`level8`)
     scene.setBackgroundImage(img`
